@@ -1,0 +1,21 @@
+
+<h1>Crear Usuario Nuevo</h1>
+
+<form  action="agregar" method="POST">
+    Nombre Completo: <input type="text" name="nombrecompleto" />
+    <br>
+    Correo Electronico : <input type="text" name="correoelectronico" />
+    <br>
+    Rol:
+    <select name="rol">
+            <% lroles.forEach( function(r)  { %>
+                <option value="<%= r.id %>"><%= r.nombre%></option>
+            <%}) %>
+    </select>
+
+    <br><br>
+   <input type="submit"  value="Agregar" />
+   <input type="reset"  value="Limpiar" />
+</form>
+
+

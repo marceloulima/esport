@@ -1,0 +1,52 @@
+
+<h1>LISTADO USUARIOS</h1>
+
+<form action="agregar" style="display:inline">
+    <input type="submit" value="Crear Nuevo Usuario" />
+</form>
+
+<a href="esportsruta2/listadoPorRol">Listar Usuarios por Rol</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre Completo</th>
+            <th>Correo Electronico</th>
+            <th>Rol</th>
+            <th>Editar usuario</th>
+            <th>Eliminar usuario</th>
+        </tr>
+    </thead>
+    <tbody id="datos">
+            <% lusuarios.forEach( function(elem) { %>
+                <tr>
+                    <td><%= elem.id %></td>
+                    <td><%= elem.nombrecompleto %></td>
+                    <td><%= elem.correoelectronico %></td>
+                        <% lroles.forEach( function(r)  { 
+                            if (r.id == elem.rolId) { %> 
+                                <td> <%= r.nombre %></td>
+                            <% } %>
+                        <%}) %>
+                
+          
+                <td>
+                <td>
+                    <form action="actualizar" method="GET">
+                        <input type="hidden" name="id" value="<%= elem.id %>" />
+                        <input type="submit" value="Actualizar" />
+                    </form>
+                </td>
+                <td>
+                    <form action="eliminar" method="GET">
+                        <input type="hidden" name="id" value="<%= elem.id %>" />
+                        <input type="submit" value="Eliminar" />
+                    </form>
+                </td>
+                </tr>
+             <% }) %>
+     </tbody>
+</table>
+
+

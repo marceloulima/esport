@@ -1,0 +1,38 @@
+
+<h1>LISTADO x ROL</h1>
+
+<form  action="consultarXRol" method="POST">
+Rol: 
+<select name="rol" >
+             <% lroles.forEach( function(r)  {  %>
+                <option value="<%= r.id %>"><%= r.nombre%></option>
+            <%}) %>   
+</select>
+<input type="submit"  value="Consultar" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre Completo</th>
+            <th>Correo Electronico</th>
+            <th>Rol</th>
+        </tr>
+    </thead>
+    <tbody id="datos">
+            <% lusuarios.forEach( function(elem) { %>
+                <tr>
+                    <td><%= elem['usuarios.id'] %></td>
+                    <td><%= elem['usuarios.nombrecompleto'] %></td>
+                    <td><%= elem['usuarios.correoelectronico'] %></td>
+                        <% lroles.forEach( function(r)  { 
+                            if (r.id == elem['usuarios.rolId']) {  %>
+                                <td> <%= r.nombre %></td>
+                            <% } %>
+                        <%}) %>
+                </tr>
+            <%}) %>
+    </tbody>
+</table>
+
