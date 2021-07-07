@@ -1,6 +1,7 @@
 const express = require('express')
 const http = require('http');
-const morgan = require("morgan")
+const morgan = require("morgan");
+
 
 /* Uso de layout */
 const expressEjsLayout = require('express-ejs-layouts')

@@ -11,7 +11,8 @@
     <thead>
         <tr>
             <th>Codigo</th>
-            <th>Nombre Completo</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
             <th>Correo Electronico</th>
             <th>Rol</th>
             <th>Editar usuario</th>
@@ -22,7 +23,8 @@
             <% lusuarios.forEach( function(elem) { %>
                 <tr>
                     <td><%= elem.id %></td>
-                    <td><%= elem.nombrecompleto %></td>
+                    <td><%= elem.nombre %></td>
+                    <td><%= elem.apellidos %></td>
                     <td><%= elem.correoelectronico %></td>
                         <% lroles.forEach( function(r)  { 
                             if (r.id == elem.rolId) { %> 

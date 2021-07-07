@@ -51,8 +51,10 @@ rutas.get('/agregar' , (req,res) => {
 
 rutas.post('/agregar' , (req,res) => {
     usuario.create( {
-        nombrecompleto: req.body.nombrecompleto,
+        nombre: req.body.nombre,
+        apellidos: req.body.apellidos,
         correoelectronico: req.body.correoelectronico,
+        contraseña: req.body.contraseña,
         rolId : req.body.rol
         
     })
@@ -73,8 +75,10 @@ rutas.get('/actualizar',(req,res) =>{
 
 rutas.post('/actualizar' , (req,res) => {
     usuario.update( {
-        nombrecompleto: req.body.nombrecompleto,
+        nombre: req.body.nombre,
+        apellidos: req.body.apellidos,
         correoelectronico: req.body.correoelectronico,
+        contraseña: req.body.contraseña,
         rolId: req.body.rol
     },{
         where:{

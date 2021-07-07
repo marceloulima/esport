@@ -15,7 +15,8 @@ Rol:
     <thead>
         <tr>
             <th>Codigo</th>
-            <th>Nombre Completo</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
             <th>Correo Electronico</th>
             <th>Rol</th>
         </tr>
@@ -24,7 +25,8 @@ Rol:
             <% lusuarios.forEach( function(elem) { %>
                 <tr>
                     <td><%= elem['usuarios.id'] %></td>
-                    <td><%= elem['usuarios.nombrecompleto'] %></td>
+                    <td><%= elem['usuarios.nombre'] %></td>
+                    <td><%= elem['usuarios.apellidos'] %></td>
                     <td><%= elem['usuarios.correoelectronico'] %></td>
                         <% lroles.forEach( function(r)  { 
                             if (r.id == elem['usuarios.rolId']) {  %>
