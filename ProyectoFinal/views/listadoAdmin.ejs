@@ -1,7 +1,7 @@
 
 <h1>LISTADO USUARIOS</h1>
 
-<form action="agregar" style="display:inline">
+<form action="agregarAdmin" style="display:inline">
     <input type="submit" value="Crear Nuevo Usuario" />
 </form>
 
@@ -35,13 +35,13 @@
           
                 <td>
                 <td>
-                    <form action="actualizar" method="GET">
+                    <form action="actualizarAdmin" method="GET">
                         <input type="hidden" name="id" value="<%= elem.id %>" />
                         <input type="submit" value="Actualizar" />
                     </form>
                 </td>
                 <td>
-                    <form action="eliminar" method="GET">
+                    <form action="eliminarAdmin" method="GET">
                         <input type="hidden" name="id" value="<%= elem.id %>" />
                         <input type="submit" value="Eliminar" />
                     </form>

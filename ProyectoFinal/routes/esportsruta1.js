@@ -24,7 +24,7 @@ rutas.get('/', (req,res) => {
     rol.findAll( { } )
         .then( listaRoles => {
             LR = listaRoles
-            res.redirect('consultar')
+            res.redirect('consultarAdmin')
         })
         .catch(  error => {
             console.log(error)
@@ -33,10 +33,10 @@ rutas.get('/', (req,res) => {
 })
 
 /* Consulta total */
-rutas.get('/consultar', (req,res) => {
+rutas.get('/consultarAdmin', (req,res) => {
     usuario.findAll( { } )
         .then( rpta => {
-            res.render('listado', { lroles: LR, lusuarios: rpta })
+            res.render('listadoAdmin', { lroles: LR, lusuarios: rpta })
         })
         .catch(  error => {
             console.log(error)
@@ -45,11 +45,11 @@ rutas.get('/consultar', (req,res) => {
 })
 
 /* Insertar */ 
-rutas.get('/agregar' , (req,res) => {
-    res.render('agregar', { lroles: LR })
+rutas.get('/agregarAdmin' , (req,res) => {
+    res.render('agregarAdmin', { lroles: LR })
 })
 
-rutas.post('/agregar' , (req,res) => {
+rutas.post('/agregarAdmin' , (req,res) => {
     usuario.create( {
         nombre: req.body.nombre,
         apellidos: req.body.apellidos,
@@ -68,12 +68,12 @@ rutas.post('/agregar' , (req,res) => {
 })
 
 /* Actualizar */
-rutas.get('/actualizar',(req,res) =>{
+rutas.get('/actualizarAdmin',(req,res) =>{
     var indice = req.query.id
-    res.render('actualizar', {lroles:LR, indice:indice})
+    res.render('actualizarAdmin', {lroles:LR, indice:indice})
 })
 
-rutas.post('/actualizar' , (req,res) => {
+rutas.post('/actualizarAdmin' , (req,res) => {
     usuario.update( {
         nombre: req.body.nombre,
         apellidos: req.body.apellidos,
@@ -87,7 +87,7 @@ rutas.post('/actualizar' , (req,res) => {
 
     })
     .then( rpta => {
-        res.redirect('consultar')
+        res.redirect('consultarAdmin')
     })
     .catch(  error => {
         console.log(error)
@@ -95,7 +95,7 @@ rutas.post('/actualizar' , (req,res) => {
     })    
 })
 
-rutas.get('/eliminar',(req,res) =>{
+rutas.get('/eliminarAdmin',(req,res) =>{
     usuario.destroy( {
         where:{
             id:req.query.id
@@ -103,7 +103,7 @@ rutas.get('/eliminar',(req,res) =>{
 
     })
     .then( rpta => {
-        res.redirect('consultar')
+        res.redirect('consultarAdmin')
     })
     .catch(  error => {
         console.log(error)
