@@ -1,22 +1,21 @@
-
-<h1>LISTADO USUARIOS</h1>
+DEINICO — hoy a las 22:50
+<h1>LISTADO TORNEOS</h1>
 
 <form action="agregar" style="display:inline">
     <input type="submit" value="Crear Nuevo Usuario" />
 </form>
 
-<a href="esportsruta2/listadoPorRol">Listar Usuarios por Rol</a>
+<a href="esportsruta2/listadoPorRol">Listar Organizador por torneo</a>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Codigo</th>
+            <th>ID</th>
             <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Correo Electronico</th>
-            <th>Rol</th>
-            <th>Editar usuario</th>
-            <th>Eliminar usuario</th>
+            <th>Fecha inicio</th>
+            <th>Fecha Fin</th>
+            <th>Numero de participantes</th>
+            <th>Accion</th>
         </tr>
     </thead>
     <tbody id="datos">
@@ -24,15 +23,17 @@
                 <tr>
                     <td><%= elem.id %></td>
                     <td><%= elem.nombre %></td>
-                    <td><%= elem.apellidos %></td>
-                    <td><%= elem.correoelectronico %></td>
+                    <td><%= elem.fechainicio %></td>
+                    <td><%= elem.fechafin %></td>
+                    <td><%= elem.maximoparticipante %></td>
                         <% lroles.forEach( function(r)  { 
                             if (r.id == elem.rolId) { %> 
                                 <td> <%= r.nombre %></td>
                             <% } %>
                         <%}) %>
-                
-          
+
+
+
                 <td>
                 <td>
                     <form action="actualizar" method="GET">
@@ -50,5 +51,3 @@
              <% }) %>
      </tbody>
 </table>
-
-
