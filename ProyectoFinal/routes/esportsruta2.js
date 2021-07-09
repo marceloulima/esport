@@ -10,6 +10,7 @@ const usuario = models.Usuario
 
 // Multer
 const multer = require('multer')
+const ronda = require("../models/ronda")
 const par = multer()
 
 // Parsing de lo datos
@@ -42,6 +43,23 @@ rutas.post('/consultarXRol', (req,res) => {
     })
     .then( (rpta) => {
         res.render('listadoXRol', { lroles: LR, lusuarios: rpta })
+    })
+    .catch(  error => {
+        console.log(error)
+        res.status(400).send(error)
+    })    
+})
+
+rutas.post('/partidasXronda', (req,res) => {
+    ronda.findAll( {
+        where: {
+            id: req.body.rol
+        },
+        include: [ { model: ronda, as: 'rondas'}],
+        raw:true
+    })
+    .then( (rpta) => {
+        res.render('listaRondas', { lrondas: LR, lpartidas: rpta })
     })
     .catch(  error => {
         console.log(error)

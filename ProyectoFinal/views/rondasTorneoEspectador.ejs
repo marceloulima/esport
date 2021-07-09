@@ -1,0 +1,30 @@
+<h1>RONDAS DE TORNEO</h1>
+
+<form action="partidasXronda" method="POST">
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Numero</th>
+            <th>Fecha</th>
+            <th>Ordinal</th>
+            <th>Partidas</th>
+        </tr>
+    </thead>
+    <tbody id="datos">
+            <% lrondas.forEach( function(elem) { %>
+                <tr>
+                    <td><%= elem.id %></td>
+                    <td><%= elem.fecha %></td>
+                    <td><%= elem.ordinal %></td>
+                        <% lrondas.forEach( function(r)  { 
+                            if (r.partida == elem.nombre) { %> 
+                                <td> <%= r.nombre %></td>
+                            <% } %>
+                        <%}) %>
+                <td>
+                </tr>
+             <% }) %>
+     </tbody>
+</table>
